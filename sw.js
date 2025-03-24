@@ -4,7 +4,6 @@ const urlsToCache = [
     '/index.html',
     '/manifest.json',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2',
     '/icon.png'
 ];
 
@@ -69,13 +68,7 @@ self.addEventListener('fetch', event => {
 
                         return response;
                     }
-                ).catch(() => {
-                    // Se falhar a conexão e for uma requisição para uma página,
-                    // mostra a página offline
-                    if (event.request.mode === 'navigate') {
-                        return caches.match('/');
-                    }
-                });
+                );
             })
     );
 });

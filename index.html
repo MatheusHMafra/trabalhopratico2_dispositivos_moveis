@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#8e44ad">
-    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="icon" href="icon.png" type="image/png">
     <script>
         (function () {
             const savedTheme = localStorage.getItem('theme');
@@ -299,19 +299,18 @@
     </template>
 
     <script>
-        // Registrar o Service Worker
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
+            window.addEventListener('load', function () {
                 navigator.serviceWorker.register('/sw.js')
-                    .then(function(registration) {
+                    .then(function (registration) {
                         console.log('Service Worker registrado com sucesso:', registration.scope);
                     })
-                    .catch(function(error) {
+                    .catch(function (error) {
                         console.log('Falha ao registrar o Service Worker:', error);
                     });
             });
         }
-        
+
         class ContatoCard extends HTMLElement {
             constructor() {
                 super();
